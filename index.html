@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="overrides.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -166,13 +167,39 @@
       </div>
       <div class="register-copy reveal delay-1">
         <p class="kicker">ПРЕЗЕНТАЦИЯ GREENWAY</p>
-        <h2>ВОЗМОЖНО,<br>ТЕБЕ ПРОСТО<br>НУЖНО УВИДЕТЬ<br><span class="marker">НОВЫЙ ВАРИАНТ.</span></h2>
+        <h2>ЗАБРОНИРУЙ<br>СВОЁ МЕСТО<br><span class="marker">НА ВСТРЕЧЕ.</span></h2>
         <div class="event-meta">
           <div><small>АДРЕС</small><strong>УЛ. МАЛЬЦЕВА, 1<br>ОФИС GREENWAY</strong></div>
           <div><small>ВХОД</small><strong>СВОБОДНЫЙ</strong></div>
         </div>
-        <a class="btn btn-dark magnetic" href="https://t.me/ilya_vsevolodov" target="_blank" rel="noreferrer">НАПИСАТЬ «ПРЕЗЕНТАЦИЯ» <span>↗</span></a>
-        <p class="cta-note">Напиши мне слово «ПРЕЗЕНТАЦИЯ» — отправлю подробности и забронирую место.</p>
+
+        <form class="lead-form" action="https://formsubmit.co/vsevolodovilja@yandex.ru" method="POST">
+          <input type="hidden" name="_subject" value="Новая заявка: презентация Greenway 18 июля" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+
+          <label class="form-field">
+            <span>01 / ИМЯ</span>
+            <input type="text" name="Имя" placeholder="Как вас зовут?" autocomplete="name" required />
+          </label>
+
+          <label class="form-field">
+            <span>02 / ТЕЛЕФОН</span>
+            <input type="tel" name="Телефон" placeholder="+7 999 000-00-00" autocomplete="tel" inputmode="tel" required />
+          </label>
+
+          <fieldset class="messenger-field">
+            <legend>03 / УДОБНЫЙ МЕССЕНДЖЕР</legend>
+            <div class="messenger-options">
+              <label><input type="radio" name="Мессенджер" value="MAX" required /><span>MAX</span></label>
+              <label><input type="radio" name="Мессенджер" value="Telegram" required /><span>TELEGRAM</span></label>
+            </div>
+          </fieldset>
+
+          <button class="btn btn-dark magnetic form-submit" type="submit">ОТПРАВИТЬ ЗАЯВКУ <span>↗</span></button>
+          <p class="form-note">Оставь контакты — я свяжусь с тобой и подтвержу участие.</p>
+        </form>
       </div>
       <div class="corner-label">VOLOGDA / 18.07 / GREENWAY</div>
     </section>
