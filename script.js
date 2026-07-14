@@ -87,6 +87,25 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   }
 }
 
+const setBodyLock = () => {
+  const hasOpenModal = document.querySelector('.success-modal.is-open, .legal-modal.is-open');
+  document.body.classList.toggle('modal-open', Boolean(hasOpenModal));
+};
+
+const openModal = (modal) => {
+  if (!modal) return;
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  setBodyLock();
+};
+
+const closeModal = (modal) => {
+  if (!modal) return;
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  setBodyLock();
+};
+
 const leadForm = document.querySelector('.lead-form');
 const submitButton = document.querySelector('.form-submit');
 if (leadForm && submitButton) {
@@ -99,24 +118,32 @@ if (leadForm && submitButton) {
 
 const successModal = document.querySelector('#successModal');
 const successCloseItems = document.querySelectorAll('[data-success-close]');
+const legalModal = document.querySelector('#legalModal');
+const legalOpenItems = document.querySelectorAll('[data-legal-open]');
+const legalCloseItems = document.querySelectorAll('[data-legal-close]');
 const url = new URL(window.location.href);
+
 const openSuccessModal = () => {
-  if (!successModal) return;
-  successModal.classList.add('is-open');
-  successModal.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('modal-open');
-  successModal.querySelector('.success-close')?.focus();
-  renderLucideIcons();
+  openModal(successModal);
+  successModal?.querySelector('.success-close')?.focus();
 };
+
 const closeSuccessModal = () => {
-  if (!successModal) return;
-  successModal.classList.remove('is-open');
-  successModal.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('modal-open');
+  closeModal(successModal);
   if (url.searchParams.has('sent')) {
     url.searchParams.delete('sent');
     history.replaceState({}, '', `${url.pathname}${url.search}${url.hash || ''}`);
   }
+};
+
+const openLegalModal = (event) => {
+  event?.preventDefault();
+  openModal(legalModal);
+  legalModal?.querySelector('.legal-close')?.focus();
+};
+
+const closeLegalModal = () => {
+  closeModal(legalModal);
 };
 
 if (url.searchParams.get('sent') === '1') {
@@ -129,8 +156,16 @@ successCloseItems.forEach((item) => {
   item.addEventListener('click', closeSuccessModal);
 });
 
+legalOpenItems.forEach((item) => {
+  item.addEventListener('click', openLegalModal);
+});
+
+legalCloseItems.forEach((item) => {
+  item.addEventListener('click', closeLegalModal);
+});
+
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && successModal?.classList.contains('is-open')) {
-    closeSuccessModal();
-  }
+  if (event.key !== 'Escape') return;
+  if (legalModal?.classList.contains('is-open')) closeLegalModal();
+  if (successModal?.classList.contains('is-open')) closeSuccessModal();
 });
