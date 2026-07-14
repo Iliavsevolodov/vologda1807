@@ -117,7 +117,6 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="faq.css" />
   <link rel="stylesheet" href="icons.css" />
-  <link rel="stylesheet" href="legal.css" />
   <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script defer src="script.js"></script>
 </head>
@@ -347,7 +346,7 @@
 
           <label class="consent-field">
             <input type="checkbox" name="Согласие" value="Согласен(а) на обработку персональных данных" required />
-            <span>Я согласен(а) на обработку персональных данных для связи по поводу презентации и подтверждаю, что ознакомился(ась) с <a href="#legal" data-legal-open>правилами и данными</a>.</span>
+            <span>Я согласен(а) на обработку персональных данных для связи по поводу презентации и подтверждаю, что ознакомился(ась) с <button class="legal-inline-link" type="button" data-legal-open>правилами и данными</button>.</span>
           </label>
 
           <button class="btn btn-dark magnetic form-submit" type="submit">ОТПРАВИТЬ ЗАЯВКУ <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i></button>
@@ -362,7 +361,7 @@
     <a href="#top">GREENWAY PRESENTATION</a>
     <span>ПРЕЗЕНТАЦИЯ · ВОЛОГДА · 18 ИЮЛЯ · 17:30</span>
     <div class="footer-actions">
-      <button class="footer-legal-link" type="button" data-legal-open>Правила и обработка данных</button>
+      <button class="footer-legal-link" type="button" data-legal-open>Правила и данные</button>
       <a href="#register">ЗАЯВКА <i data-lucide="arrow-up-right" class="lucide-icon" aria-hidden="true"></i></a>
     </div>
   </footer>
@@ -380,41 +379,42 @@
 
   <div class="legal-modal" id="legalModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
     <div class="legal-backdrop" data-legal-close></div>
-    <div class="legal-card" role="document">
-      <button class="legal-close" type="button" aria-label="Закрыть окно" data-legal-close>×</button>
-      <div class="legal-head">
-        <span><i data-lucide="shield-check" class="legal-head-icon" aria-hidden="true"></i> ПРАВИЛА И ДАННЫЕ</span>
-        <h2 id="legalTitle">Согласие на обработку данных</h2>
-        <p>Этот раздел описывает, какие данные передаются через форму заявки и как они используются для связи по поводу презентации Greenway.</p>
-      </div>
+    <article class="legal-window" role="document">
+      <button class="legal-close" type="button" aria-label="Закрыть правила и данные" data-legal-close>×</button>
+      <header class="legal-header">
+        <span class="legal-kicker"><i data-lucide="shield-check" class="success-kicker-icon" aria-hidden="true"></i> ПРАВИЛА И ДАННЫЕ</span>
+        <h2 id="legalTitle">Правила обработки заявки</h2>
+        <p>Этот раздел объясняет, какие данные указываются в форме и для чего они нужны организаторам презентации Greenway.</p>
+      </header>
+
       <div class="legal-content">
-        <section>
-          <h3>1. Какие данные собираются</h3>
-          <p>При отправке заявки вы указываете имя, номер телефона и удобный мессенджер для связи: MAX или Telegram.</p>
+        <section class="legal-block">
+          <h3>Какие данные собираются</h3>
+          <p>Через форму заявки пользователь указывает имя, телефон и удобный мессенджер: MAX или Telegram.</p>
         </section>
-        <section>
-          <h3>2. Цель обработки</h3>
-          <p>Данные используются только для подтверждения участия, уточнения деталей встречи и связи с вами по поводу презентации 18 июля в 17:30.</p>
+        <section class="legal-block">
+          <h3>Для чего используются данные</h3>
+          <p>Данные нужны только для связи по поводу презентации, подтверждения участия и уточнения организационных деталей встречи.</p>
         </section>
-        <section>
-          <h3>3. Передача заявки</h3>
-          <p>Отправка формы технически выполняется через сервис FormSubmit. После отправки данные поступают на почту организаторов презентации.</p>
+        <section class="legal-block">
+          <h3>Как отправляется заявка</h3>
+          <p>Форма технически отправляет данные через сервис FormSubmit на почту организаторов. На сайте не создаётся личный кабинет и не подключается отдельная база данных.</p>
         </section>
-        <section>
-          <h3>4. Добровольность</h3>
-          <p>Участие во встрече добровольное. Вы можете прийти, послушать, задать вопросы и самостоятельно принять решение.</p>
+        <section class="legal-block">
+          <h3>Добровольность участия</h3>
+          <p>Отправка заявки и участие во встрече являются добровольными. На презентацию можно прийти, послушать, задать вопросы и самостоятельно принять решение.</p>
         </section>
-        <section>
-          <h3>5. Отзыв согласия</h3>
-          <p>Если вы хотите удалить заявку или не получать сообщения по поводу встречи, сообщите об этом организаторам в ответном сообщении.</p>
-        </section>
-        <section>
-          <h3>6. Вход на встречу</h3>
-          <p>Вход свободный. Заявка нужна для подтверждения места и понимания количества гостей.</p>
+        <section class="legal-block">
+          <h3>Как отказаться от связи</h3>
+          <p>Если пользователь больше не хочет получать сообщения по поводу презентации, он может сообщить об этом организаторам в выбранном мессенджере.</p>
         </section>
       </div>
-      <button class="btn btn-primary legal-accept" type="button" data-legal-close>ПОНЯТНО <i data-lucide="check" class="lucide-icon" aria-hidden="true"></i></button>
-    </div>
+
+      <footer class="legal-footer">
+        <small>Отправляя заявку, пользователь подтверждает согласие на связь по указанным контактам в рамках презентации.</small>
+        <button class="btn btn-primary legal-accept" type="button" data-legal-close>ПОНЯТНО <i data-lucide="check" class="lucide-icon" aria-hidden="true"></i></button>
+      </footer>
+    </article>
   </div>
 </body>
 </html>
