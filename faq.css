@@ -51,8 +51,9 @@
 
 .faq-panel h2 {
   font-size: clamp(52px, 6vw, 104px);
-  line-height: .98;
-  letter-spacing: -.025em;
+  line-height: 1.08;
+  letter-spacing: .01em;
+  word-spacing: .16em;
   position: relative;
   z-index: 2;
 }
@@ -88,8 +89,9 @@
 .faq-mini-card strong {
   display: block;
   margin: 9px 0 10px;
-  font: 700 clamp(28px, 3vw, 44px)/.98 var(--head);
-  letter-spacing: -.018em;
+  font: 700 clamp(28px, 3vw, 44px)/1.08 var(--head);
+  letter-spacing: .01em;
+  word-spacing: .14em;
 }
 
 .faq-premium-list {
@@ -125,7 +127,9 @@
   min-height: 96px;
   list-style: none;
   cursor: pointer;
-  font: 700 clamp(26px, 3vw, 48px)/1.05 var(--head);
+  font: 700 clamp(26px, 3vw, 48px)/1.12 var(--head);
+  letter-spacing: .005em;
+  word-spacing: .12em;
   text-transform: uppercase;
   position: relative;
 }
@@ -187,6 +191,187 @@
   font-weight: 700;
 }
 
+/* Readability layer for all large display typography */
+h1,
+.problem-title h2,
+.split-heading h2,
+.why-title h2,
+.audience-head h2,
+.program-title h2,
+.no-pressure-card h2,
+.rules-title h2,
+.faq-panel h2,
+.register-copy h2,
+.success-card h2,
+.benefit-card h3,
+.program-card h3,
+.rules-card h3,
+.audience-row p,
+.experience-note,
+.event-meta strong,
+.rubber-stamp,
+.big-question {
+  letter-spacing: .01em !important;
+  word-spacing: .16em !important;
+  line-height: 1.08 !important;
+  font-kerning: none;
+  text-wrap: balance;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+h1 {
+  font-size: clamp(58px, 8.8vw, 152px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: .005em !important;
+  word-spacing: .18em !important;
+}
+
+.marker {
+  padding-inline: .11em !important;
+  margin-inline: .04em !important;
+}
+
+.phone-screen strong {
+  letter-spacing: .02em !important;
+  word-spacing: .12em !important;
+  line-height: 1.08 !important;
+}
+
+/* Rules and data section */
+.rules {
+  background:
+    radial-gradient(circle at 82% 12%, rgba(255, 212, 0, .22), transparent 22%),
+    linear-gradient(135deg, #fffdf7 0%, #f4f1e9 100%);
+}
+
+.rules::before {
+  content: "DATA";
+  position: absolute;
+  right: clamp(18px, 5vw, 82px);
+  top: 30px;
+  font: 700 clamp(78px, 15vw, 220px)/1 var(--head);
+  letter-spacing: .03em;
+  color: rgba(11, 11, 11, .045);
+  pointer-events: none;
+}
+
+.rules-layout {
+  position: relative;
+  z-index: 2;
+  align-items: stretch;
+}
+
+.rules-title {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  padding: clamp(28px, 4vw, 50px);
+  box-shadow: 12px 12px 0 var(--yellow);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.rules-title::after {
+  content: "Согласие · заявка · связь";
+  display: inline-block;
+  width: fit-content;
+  margin-top: 32px;
+  padding: 10px 12px;
+  border: 2px solid var(--ink);
+  background: var(--yellow);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transform: rotate(-1.5deg);
+}
+
+.rules-list {
+  align-content: stretch;
+}
+
+.rules-card {
+  background: #fff;
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.rules-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.rules-card h3 {
+  margin-top: 64px !important;
+  font-size: clamp(25px, 2vw, 36px) !important;
+}
+
+.rules-card p {
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.rule-icon {
+  background: var(--yellow);
+  box-shadow: 5px 5px 0 rgba(11, 11, 11, .14);
+}
+
+/* Custom consent checkbox */
+.consent-field {
+  align-items: start;
+  border: 2px solid var(--ink);
+  background: rgba(255, 253, 247, .8);
+  padding: 14px;
+  box-shadow: 5px 5px 0 rgba(11, 11, 11, .12);
+}
+
+.consent-field input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 3px 3px 0 rgba(11, 11, 11, .18);
+  transition: background .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.consent-field input[type="checkbox"]:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 rgba(11, 11, 11, .2);
+}
+
+.consent-field input[type="checkbox"]:checked {
+  background-color: var(--ink);
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 7.2L6.4 11.4L16 2' stroke='%23FFD400' stroke-width='3' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 17px 13px;
+}
+
+.consent-field input[type="checkbox"]:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+.consent-field span {
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+.consent-field a {
+  background: linear-gradient(var(--yellow), var(--yellow)) 0 100% / 100% 45% no-repeat;
+  border-bottom: 0 !important;
+}
+
 @media (max-width: 1100px) {
   .faq-premium-layout {
     grid-template-columns: 1fr;
@@ -196,11 +381,47 @@
     position: relative;
     top: auto;
   }
+
+  .rules-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
-  .faq-premium::before {
+  .faq-premium::before,
+  .rules::before {
     display: none;
+  }
+
+  h1 {
+    font-size: clamp(46px, 14vw, 64px) !important;
+    line-height: 1.06 !important;
+    letter-spacing: .01em !important;
+    word-spacing: .14em !important;
+  }
+
+  .problem-title h2,
+  .split-heading h2,
+  .why-title h2,
+  .audience-head h2,
+  .program-title h2,
+  .no-pressure-card h2,
+  .rules-title h2,
+  .faq-panel h2,
+  .register-copy h2,
+  .success-card h2 {
+    font-size: clamp(35px, 9.3vw, 48px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: .01em !important;
+    word-spacing: .14em !important;
+  }
+
+  .benefit-card h3,
+  .program-card h3,
+  .rules-card h3,
+  .audience-row p {
+    line-height: 1.12 !important;
+    word-spacing: .12em !important;
   }
 
   .faq-panel {
@@ -211,8 +432,9 @@
     grid-template-columns: 44px minmax(0, 1fr) 32px;
     gap: 12px;
     min-height: 82px;
-    font-size: clamp(23px, 7.2vw, 34px);
-    line-height: 1.08;
+    font-size: clamp(22px, 6.2vw, 30px);
+    line-height: 1.14;
+    word-spacing: .11em;
   }
 
   .faq-premium-item summary span {
@@ -232,5 +454,17 @@
 
   .faq-mini-card {
     transform: none;
+  }
+
+  .rules-title {
+    box-shadow: 8px 8px 0 var(--yellow);
+  }
+
+  .rules-list {
+    grid-template-columns: 1fr;
+  }
+
+  .consent-field {
+    grid-template-columns: 30px minmax(0, 1fr);
   }
 }
