@@ -117,6 +117,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="faq.css" />
   <link rel="stylesheet" href="icons.css" />
+  <link rel="stylesheet" href="legal.css" />
   <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script defer src="script.js"></script>
 </head>
@@ -264,24 +265,8 @@
       </div>
     </section>
 
-    <section class="section rules" id="privacy">
-      <div class="section-index reveal">06 / ПРАВИЛА И ДАННЫЕ</div>
-      <div class="rules-layout">
-        <div class="rules-title reveal">
-          <p class="kicker">ПЕРЕД ОТПРАВКОЙ ЗАЯВКИ</p>
-          <h2>ВАЖНЫЕ<br><span class="marker">ПРАВИЛА</span><br>УЧАСТИЯ</h2>
-        </div>
-        <div class="rules-list reveal delay-1">
-          <article class="rules-card"><i data-lucide="messages-square" class="rule-lucide" aria-hidden="true"></i><h3>ЗАЯВКА НУЖНА ДЛЯ СВЯЗИ</h3><p>Имя, телефон и выбранный мессенджер используются только для подтверждения участия и связи по поводу презентации.</p></article>
-          <article class="rules-card"><i data-lucide="database" class="rule-lucide" aria-hidden="true"></i><h3>ДАННЫЕ ПЕРЕДАЮТСЯ ЧЕРЕЗ ФОРМУ</h3><p>Отправка заявки технически выполняется через сервис FormSubmit, после чего информация поступает на почту организаторов.</p></article>
-          <article class="rules-card"><i data-lucide="handshake" class="rule-lucide" aria-hidden="true"></i><h3>УЧАСТИЕ ДОБРОВОЛЬНОЕ</h3><p>Вы можете прийти, послушать, задать вопросы и самостоятельно решить, интересно ли вам направление Greenway.</p></article>
-          <article class="rules-card"><i data-lucide="ticket-check" class="rule-lucide" aria-hidden="true"></i><h3>ВХОД СВОБОДНЫЙ</h3><p>Для участия достаточно оставить заявку, чтобы организаторы понимали количество гостей и могли подтвердить место.</p></article>
-        </div>
-      </div>
-    </section>
-
     <section class="section faq faq-premium" id="faq">
-      <div class="section-index reveal">07 / FAQ</div>
+      <div class="section-index reveal">06 / FAQ</div>
       <div class="faq-premium-layout">
         <aside class="faq-panel reveal">
           <p class="kicker">ЧАСТЫЕ ВОПРОСЫ</p>
@@ -362,7 +347,7 @@
 
           <label class="consent-field">
             <input type="checkbox" name="Согласие" value="Согласен(а) на обработку персональных данных" required />
-            <span>Я согласен(а) на обработку персональных данных для связи по поводу презентации и подтверждаю, что ознакомился(ась) с разделом <a href="#privacy">«Правила и данные»</a>.</span>
+            <span>Я согласен(а) на обработку персональных данных для связи по поводу презентации и подтверждаю, что ознакомился(ась) с <a href="#legal" data-legal-open>правилами и данными</a>.</span>
           </label>
 
           <button class="btn btn-dark magnetic form-submit" type="submit">ОТПРАВИТЬ ЗАЯВКУ <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i></button>
@@ -376,7 +361,10 @@
   <footer>
     <a href="#top">GREENWAY PRESENTATION</a>
     <span>ПРЕЗЕНТАЦИЯ · ВОЛОГДА · 18 ИЮЛЯ · 17:30</span>
-    <a href="#register">ЗАЯВКА <i data-lucide="arrow-up-right" class="lucide-icon" aria-hidden="true"></i></a>
+    <div class="footer-actions">
+      <button class="footer-legal-link" type="button" data-legal-open>Правила и обработка данных</button>
+      <a href="#register">ЗАЯВКА <i data-lucide="arrow-up-right" class="lucide-icon" aria-hidden="true"></i></a>
+    </div>
   </footer>
 
   <div class="success-modal" id="successModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="successTitle">
@@ -387,6 +375,45 @@
       <h2 id="successTitle">Спасибо!<br>Мы получили вашу заявку.</h2>
       <p>Организаторы свяжутся с вами в выбранном мессенджере и подтвердят участие в презентации.</p>
       <a class="btn btn-primary success-btn" href="#top" data-success-close>ВЕРНУТЬСЯ НА САЙТ <i data-lucide="arrow-up-right" class="lucide-icon" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <div class="legal-modal" id="legalModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+    <div class="legal-backdrop" data-legal-close></div>
+    <div class="legal-card" role="document">
+      <button class="legal-close" type="button" aria-label="Закрыть окно" data-legal-close>×</button>
+      <div class="legal-head">
+        <span><i data-lucide="shield-check" class="legal-head-icon" aria-hidden="true"></i> ПРАВИЛА И ДАННЫЕ</span>
+        <h2 id="legalTitle">Согласие на обработку данных</h2>
+        <p>Этот раздел описывает, какие данные передаются через форму заявки и как они используются для связи по поводу презентации Greenway.</p>
+      </div>
+      <div class="legal-content">
+        <section>
+          <h3>1. Какие данные собираются</h3>
+          <p>При отправке заявки вы указываете имя, номер телефона и удобный мессенджер для связи: MAX или Telegram.</p>
+        </section>
+        <section>
+          <h3>2. Цель обработки</h3>
+          <p>Данные используются только для подтверждения участия, уточнения деталей встречи и связи с вами по поводу презентации 18 июля в 17:30.</p>
+        </section>
+        <section>
+          <h3>3. Передача заявки</h3>
+          <p>Отправка формы технически выполняется через сервис FormSubmit. После отправки данные поступают на почту организаторов презентации.</p>
+        </section>
+        <section>
+          <h3>4. Добровольность</h3>
+          <p>Участие во встрече добровольное. Вы можете прийти, послушать, задать вопросы и самостоятельно принять решение.</p>
+        </section>
+        <section>
+          <h3>5. Отзыв согласия</h3>
+          <p>Если вы хотите удалить заявку или не получать сообщения по поводу встречи, сообщите об этом организаторам в ответном сообщении.</p>
+        </section>
+        <section>
+          <h3>6. Вход на встречу</h3>
+          <p>Вход свободный. Заявка нужна для подтверждения места и понимания количества гостей.</p>
+        </section>
+      </div>
+      <button class="btn btn-primary legal-accept" type="button" data-legal-close>ПОНЯТНО <i data-lucide="check" class="lucide-icon" aria-hidden="true"></i></button>
     </div>
   </div>
 </body>
