@@ -8,6 +8,84 @@ const renderLucideIcons = () => {
   }
 };
 
+const compactFaqStyles = document.createElement('link');
+compactFaqStyles.rel = 'stylesheet';
+compactFaqStyles.href = 'faq-compact.css';
+document.head.appendChild(compactFaqStyles);
+
+const extraFaqItems = [
+  {
+    icon: 'briefcase-business',
+    question: 'Можно ли совмещать это с основной работой?',
+    answer: 'Да. Формат можно развивать параллельно с работой, услугами, бизнесом, учёбой или семьёй. На встрече покажем, как встроить действия в обычный график без резких решений.'
+  },
+  {
+    icon: 'badge-russian-ruble',
+    question: 'Нужны ли большие вложения для старта?',
+    answer: 'На презентации разберём реальные варианты старта и объясним, из чего складываются расходы. Вы сможете спокойно оценить формат и принять решение только после того, как получите полную информацию.'
+  },
+  {
+    icon: 'megaphone-off',
+    question: 'Я не продавец и не люблю навязывать. Мне подойдёт?',
+    answer: 'Да. Речь не про давление на людей и агрессивные продажи. Основа — рекомендации, контент, общение и понятная система работы с теми, кому действительно интересен продукт или возможность.'
+  },
+  {
+    icon: 'camera-off',
+    question: 'Обязательно вести блог и постоянно снимать себя?',
+    answer: 'Нет. Блог может быть инструментом, но это не единственный способ развития. На встрече расскажем о разных форматах коммуникации и продвижения.'
+  },
+  {
+    icon: 'users-round',
+    question: 'Нужно ли сразу приглашать друзей и родственников?',
+    answer: 'Нет. Система не строится только на близком окружении. Есть современные онлайн-инструменты, контент и способы находить людей за пределами списка знакомых.'
+  },
+  {
+    icon: 'chart-no-axes-column-increasing',
+    question: 'Как быстро можно начать зарабатывать?',
+    answer: 'У всех разный темп и результат зависит от действий, навыков и времени, которое человек готов уделять направлению. На встрече мы не обещаем гарантированный доход, а показываем модель и конкретные шаги старта.'
+  },
+  {
+    icon: 'circle-help',
+    question: 'А если я вообще ничего не понимаю в таком бизнесе?',
+    answer: 'Это нормально. Многие начинают без опыта. Есть обучение, наставничество и последовательные действия. На презентации всё объясним простым языком без сложных терминов.'
+  },
+  {
+    icon: 'shield-question',
+    question: 'Что, если у меня не получится?',
+    answer: 'Приходить на презентацию — не значит брать на себя обязательства. Сначала вы изучаете информацию, задаёте вопросы и оцениваете систему. Решение о старте принимаете самостоятельно.'
+  },
+  {
+    icon: 'clock',
+    question: 'Сколько времени нужно уделять этому направлению?',
+    answer: 'Зависит от вашей цели и графика. Кто-то начинает с нескольких часов в неделю, кто-то выделяет больше времени. Главное — регулярные действия, а не работа круглосуточно.'
+  },
+  {
+    icon: 'package-open',
+    question: 'Нужно ли хранить товар дома или заниматься доставкой?',
+    answer: 'Нет. Не нужно открывать склад и самостоятельно выстраивать логистику с нуля. На встрече покажем, как устроена инфраструктура компании и работа с заказами.'
+  },
+  {
+    icon: 'calendar-check-2',
+    question: 'Я могу просто прийти и ничего не решать на месте?',
+    answer: 'Конечно. Можно просто послушать, познакомиться с системой, задать вопросы и уйти подумать. Никаких обязательных решений на встрече нет.'
+  }
+];
+
+const faqList = document.querySelector('.faq-premium-list');
+if (faqList) {
+  const startNumber = faqList.querySelectorAll('.faq-premium-item').length + 1;
+  extraFaqItems.forEach((item, index) => {
+    const details = document.createElement('details');
+    details.className = 'faq-item faq-premium-item';
+    const number = String(startNumber + index).padStart(2, '0');
+    details.innerHTML = `
+      <summary><span>${number}</span><i data-lucide="${item.icon}" class="faq-question-icon" aria-hidden="true"></i><strong>${item.question}</strong></summary>
+      <div class="faq-answer"><p>${item.answer}</p></div>
+    `;
+    faqList.appendChild(details);
+  });
+}
+
 window.addEventListener('load', renderLucideIcons);
 
 const revealItems = document.querySelectorAll('.reveal');
