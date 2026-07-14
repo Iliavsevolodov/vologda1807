@@ -1,3 +1,15 @@
+const renderLucideIcons = () => {
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    window.lucide.createIcons({
+      attrs: {
+        'stroke-width': 2.2
+      }
+    });
+  }
+};
+
+window.addEventListener('load', renderLucideIcons);
+
 const revealItems = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -80,7 +92,8 @@ const submitButton = document.querySelector('.form-submit');
 if (leadForm && submitButton) {
   leadForm.addEventListener('submit', () => {
     submitButton.disabled = true;
-    submitButton.innerHTML = 'ОТПРАВЛЯЕМ ЗАЯВКУ <span class="icon icon-arrow" aria-hidden="true"></span>';
+    submitButton.innerHTML = 'ОТПРАВЛЯЕМ ЗАЯВКУ <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i>';
+    renderLucideIcons();
   });
 }
 
@@ -93,6 +106,7 @@ const openSuccessModal = () => {
   successModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
   successModal.querySelector('.success-close')?.focus();
+  renderLucideIcons();
 };
 const closeSuccessModal = () => {
   if (!successModal) return;
