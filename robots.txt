@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iliavsevolodov.github.io/vologda1807/sitemap.xml
