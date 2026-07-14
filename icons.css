@@ -1,0 +1,243 @@
+.lucide,
+.lucide-icon,
+.lucide-inline,
+.ticker-icon,
+.list-icon,
+.card-lucide,
+.row-lucide,
+.program-lucide,
+.rule-lucide,
+.faq-card-icon,
+.faq-question-icon,
+.meta-icon,
+.form-label-icon,
+.option-icon,
+.success-kicker-icon {
+  width: 1em;
+  height: 1em;
+  stroke-width: 2.2;
+  flex: 0 0 auto;
+  vertical-align: -0.12em;
+}
+
+.lucide-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.lucide-inline {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.btn .lucide,
+.btn .lucide-icon {
+  width: 21px;
+  height: 21px;
+  transition: transform .22s ease;
+}
+
+.btn:hover .lucide,
+.btn:hover .lucide-icon {
+  transform: translate(2px, -2px);
+}
+
+.phone-arrow .lucide {
+  width: 25px;
+  height: 25px;
+  stroke-width: 2.4;
+}
+
+.scribble {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.scribble .lucide {
+  width: 16px;
+  height: 16px;
+}
+
+.ticker-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--yellow);
+  stroke-width: 2.5;
+}
+
+.cross-list div {
+  gap: 14px;
+}
+
+.cross-list b,
+.ticker-dot,
+.card-icon,
+.row-icon,
+.rule-icon {
+  display: none !important;
+}
+
+.list-icon {
+  width: 24px;
+  height: 24px;
+  color: #e53935;
+  stroke-width: 2.4;
+}
+
+.card-lucide,
+.program-lucide,
+.rule-lucide,
+.row-lucide {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 9px;
+  border: 2px solid var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+  box-shadow: 5px 5px 0 rgba(11, 11, 11, .16);
+}
+
+.benefit-card .card-lucide {
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+}
+
+.benefit-card.dark .card-lucide {
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--yellow);
+}
+
+.benefit-card:hover .card-lucide,
+.program-card:hover .program-lucide,
+.rules-card:hover .rule-lucide,
+.audience-row:hover .row-lucide {
+  transform: translate(-2px, -2px) rotate(-2deg);
+}
+
+.audience-row .row-lucide {
+  justify-self: end;
+}
+
+.program-card .program-lucide {
+  margin: 18px 0 20px;
+}
+
+.program-card.accent .program-lucide {
+  background: #fff;
+}
+
+.rules-card .rule-lucide {
+  position: absolute;
+  left: 22px;
+  top: 22px;
+}
+
+.faq-mini-card {
+  padding-top: 56px;
+}
+
+.faq-card-icon {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 28px;
+  height: 28px;
+  color: var(--ink);
+}
+
+.faq-premium-item summary {
+  grid-template-columns: 58px 44px minmax(0, 1fr) 42px !important;
+}
+
+.faq-premium-item summary::before,
+.faq-premium-item summary::after {
+  grid-column: 4 !important;
+}
+
+.faq-question-icon {
+  width: 38px;
+  height: 38px;
+  padding: 8px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+}
+
+.faq-premium-item[open] .faq-question-icon {
+  background: var(--yellow);
+}
+
+.event-meta small,
+.form-field span,
+.messenger-field legend,
+.success-kicker,
+footer a:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.meta-icon,
+.form-label-icon,
+.option-icon,
+.success-kicker-icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.5;
+}
+
+.messenger-options span {
+  gap: 8px;
+}
+
+.option-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.success-kicker-icon {
+  color: var(--yellow);
+}
+
+/* Disable old pure-CSS arrows after Lucide connection */
+.icon,
+.icon-arrow,
+.icon-down {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .card-lucide,
+  .program-lucide,
+  .rule-lucide,
+  .row-lucide {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+  }
+
+  .faq-premium-item summary {
+    grid-template-columns: 38px minmax(0, 1fr) 30px !important;
+  }
+
+  .faq-question-icon {
+    display: none;
+  }
+
+  .faq-premium-item summary::before,
+  .faq-premium-item summary::after {
+    grid-column: 3 !important;
+  }
+
+  .audience-row .row-lucide {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+  }
+}
