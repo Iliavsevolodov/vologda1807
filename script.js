@@ -36,7 +36,7 @@ if (cursor && window.matchMedia('(pointer:fine)').matches) {
     cursor.style.left = `${event.clientX}px`;
     cursor.style.top = `${event.clientY}px`;
   });
-  document.querySelectorAll('a, .benefit-card, .audience-row, .program-card').forEach((item) => {
+  document.querySelectorAll('a, button, .benefit-card, .audience-row, .program-card').forEach((item) => {
     item.addEventListener('mouseenter', () => {
       cursor.style.width = '34px';
       cursor.style.height = '34px';
@@ -74,3 +74,49 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     });
   }
 }
+
+const leadForm = document.querySelector('.lead-form');
+const submitButton = leadForm?.querySelector('.form-submit');
+if (leadForm && submitButton) {
+  leadForm.addEventListener('submit', () => {
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'ОТПРАВЛЯЕМ ЗАЯВКУ <span>↗</span>';
+  });
+}
+
+const successModal = document.querySelector('#successModal');
+const successCloseItems = document.querySelectorAll('[data-success-close]');
+const url = new URL(window.location.href);
+const openSuccessModal = () => {
+  if (!successModal) return;
+  successModal.classList.add('is-open');
+  successModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+  successModal.querySelector('.success-close')?.focus();
+};
+const closeSuccessModal = () => {
+  if (!successModal) return;
+  successModal.classList.remove('is-open');
+  successModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+  if (url.searchParams.has('sent')) {
+    url.searchParams.delete('sent');
+    history.replaceState({}, '', `${url.pathname}${url.search}${url.hash || ''}`);
+  }
+};
+
+if (url.searchParams.get('sent') === '1') {
+  window.addEventListener('load', () => {
+    setTimeout(openSuccessModal, 250);
+  });
+}
+
+successCloseItems.forEach((item) => {
+  item.addEventListener('click', closeSuccessModal);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && successModal?.classList.contains('is-open')) {
+    closeSuccessModal();
+  }
+});
