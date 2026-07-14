@@ -36,7 +36,7 @@ if (cursor && window.matchMedia('(pointer:fine)').matches) {
     cursor.style.left = `${event.clientX}px`;
     cursor.style.top = `${event.clientY}px`;
   });
-  document.querySelectorAll('a, button, .benefit-card, .audience-row, .program-card').forEach((item) => {
+  document.querySelectorAll('a, button, .benefit-card, .audience-row, .program-card, .rules-card, .faq-item').forEach((item) => {
     item.addEventListener('mouseenter', () => {
       cursor.style.width = '34px';
       cursor.style.height = '34px';
@@ -76,11 +76,11 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 }
 
 const leadForm = document.querySelector('.lead-form');
-const submitButton = leadForm?.querySelector('.form-submit');
+const submitButton = document.querySelector('.form-submit');
 if (leadForm && submitButton) {
   leadForm.addEventListener('submit', () => {
     submitButton.disabled = true;
-    submitButton.innerHTML = 'ОТПРАВЛЯЕМ ЗАЯВКУ <span>↗</span>';
+    submitButton.innerHTML = 'ОТПРАВЛЯЕМ ЗАЯВКУ <span class="icon icon-arrow" aria-hidden="true"></span>';
   });
 }
 
